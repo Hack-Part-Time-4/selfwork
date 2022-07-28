@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+p, li, button {
+  font-size: 1.3em;
+}
+
+
+/* vamos a crear los estilos de nuestro header*/
+
+/* recuerda display flex, es nuestro display de confianza!
+ya que con la propiedad flex-direction podemos ordenarlos 
+de derecha a izquierda (flex-direction: row;) 
+o de arriba para abajo (flex-direction:column)*/
+
+.container_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: burlywood;
+  padding: 5px;
+  height: 60px;
+}
+
+/*usando medidas relativas*/
+
+/* nuestras medidas relativas son aquellas que se heredan
+de los padres.
+
+ej: la familia garcia tiene una herencia de 100,000 eur 
+la cual a sido repartida a travez de diferentes generaciones
+                             
+1ra generacion                      100,000
+                                      / \
+                                    80%  20%
+                                    /     \
+2d generacion                    80,000   20,000
+                                  /
+                               100%
+                                /
+3ra generacion               80,000
+                              /
+                            30%
+                            /
+                          24,000 
+*/  
+
+.container_header-logo {
+  height: 80%
+}
+
+.container_header-logo img {
+  height: 100%;
+}
+
+.container_header-nav {
+  display: flex;
+  align-items: center;
+  height: 80%;
+  width: 500px;
+}
+
+/* recuerda practicar los selectores por herencia */
+
+.container_header-nav nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.container_header-nav ul {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+}
+
+/* recuerda practicar los selectores de hijos*/
+
+.container_header-nav > nav > ul > li {
+  list-style: none;
+}
+
+.container_header-nav > nav > ul > li > a {
+  text-decoration: none;
+  font-family: 'Edu TAS Beginner', cursive;
+  color: rgba(0, 0, 0, 0.774);
+}
+
+/*vamos a utilizar nuestras pseudo clases para generar 
+diferentes efectos visuales durante un estado de nuestras etiquetas
+tipos de estados:
+  * hover (cuando pasamos el cursor sobre nuestra etiqueta)
+  * active (cuando el usuario esta presionando una etiqueta)
+  * visited (cuando el usuario ya ha visitado un link de la etiqueta a)
+
+si quieres saber mas sobre las speudo clases visita los enlaces de interes.
+*/
+
+.container_header li:hover {
+  transform: scale(1.2);
+}
+
+.container_header-nav a:hover {
+  color: black;
+}
+
+/* recuerda practicar los selectores de grupo */
+
+.btn-nav, .btn-register{
+  background-color: #f4d03f;
+  border-radius: 7px;
+  border: 1px solid #f1c40f;
+  height: 40px;
+  width: 60px;
+  font-family: 'Edu TAS Beginner', cursive;
+  color: rgba(0, 0, 0, 0.774);
+}
+
+.btn-nav:hover, .btn-register:hover {
+  transform: scale(1.2);
+  color: black;
+}
+
+/* estilos de mi primera seccion*/
+
+/* puedes modificar las propiedades de nuestro 
+diplay para ver como afecta nuestra primera seccion*/
+
+.container-section_principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(mundo_viajero.jpg);
+  background-size: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 800px;
+}
+
+.section_principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80%;
+}
+
+.section_principal-article {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 40%;
+  margin: 25px;
+  padding: 25px;
+  border-radius: 7px;
+  font-family: 'Edu TAS Beginner', cursive;
+}
+
+/* recuerda practicar los selectores de grupo */
+
+.section_principal-article  h1, p, .section_ul, .btn-register {
+  margin-top: 25px;
+}
+
+.section_principal-article li {
+  list-style: none;
+}
+
+.btn-register {
+  display: block;
+  align-self: center;
+  width: 150px;
+  height: 60px;
+  padding: 5px;
+  animation: aparece 1s 5s;
+  position: relative;
+}
+
+.section_principal-img img {
+  height: 450px;
+}
+
+@media (max-width: 768px) {
+  .container_header {
+    background-color: azure;
+  }
+
+  .container-section_principal {
+    height: auto;
+    padding-bottom: 25px;
+  }
+
+  .section_principal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .section_principal-article {
+    width: 80%;
+  }
+
+
+}
+
+.section_principal-img {
+  animation: left_animation;
+  animation-duration: 6s;
+  animation-delay: 1s;
+  position: relative;
+}
+
+.section_principal-article {
+  animation: right_animation 6s 1s;
+  position: relative;
+}
+
+@keyframes right_animation {
+  0% {left: 1000px}
+  50% {left: 0px;}
+  
+}
+
+@keyframes left_animation {
+  0% {left: -1000px}
+  50% {left: 0px;}
+}
+
+@keyframes aparece{
+  0% {display:none}
+  25% {display:block}
+}
+
